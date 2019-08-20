@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>IntelliOps-智能一体化运维平台</title>
+  <meta name="keywords" content="IntelliOps,DevOps,服务器监控,日志管理,终端管理,易助手,EasyPc,CMDB,IT资源管理,工单管理,轻量ITSM,自动化,移动运维,无线云平台,网络设备监控,网络运维,IT运维,机房监控,路由器监控,交换机监控,虚拟机监控,数据中心监控,数据库监控,网络流量分析,netflow">
+  <meta name="description" content="IntelliOps，是申服科技旗下的智能一体化运维平台。支持分布式部署，适用于各种类型数据中心和网络，集监控、日志、易助手、IT资源管理、工单管理、自动化六大功能模块的运维产品，同时产品还支持移动端运维,大大提升运维效率。">
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="assets/layui/css/layui.css"  >
+  <link rel="stylesheet" href="assets/css/common.css"  >
+  <link rel="stylesheet" href="assets/css/index.css"  >
+
+  <script src="assets/layui/layui.js"  ></script>
+  <script src="assets/js/jquery-1.9.1.min.js"  ></script>
+  <script src="assets/js/common.js" ></script>
+
+  <!--[if lt IE 9]>
+    <script src="assets/js/html5.min.js"  ></script>
+    <script src="assets/js/respond.min.js" ></script>
+  <![endif]-->
+</head>
+<body>
+  <div id="global-header" location="index"></div>
+  <div class="layui-carousel" id="index-banner">
+    <div carousel-item>
+      <div class="banner-01">
+        <button id="btn-connect" class="layui-btn">免费试用</button>
+      </div>
+    </div>
+  </div>
+  <div class="global-content">
+    <section>
+      <div class="layui-container">
+        <div class="product-features">产品特点</div>
+        <div class="layui-row">
+          <div id="productListView"></div>
+        </div>
+      </div>
+    </section>
+    <section class="even">
+      <div class="layui-container">
+        <div class="solution-title txtcenter">解决方案</div>
+        <div class="solution-content">
+          <div class="layui-row">
+            <div id="solutionListView"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="section-main">
+        <div class="service-wrapper">
+          <div class="service-title txtcenter">服务</div>
+          <div class="service-content">
+            <div class="layui-container">
+              <div class="layui-row">
+                <div id="serviceListView"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="even">
+      <div class="index-companies layui-container">
+        <div class="index-companies-title">合作伙伴</div>
+        <div class="layui-row layui-col-space10">
+          <div id="companyListView"></div>
+        </div>
+      </div>
+    </section>
+    <div class="clear"></div>
+  </div>
+  <div id="global-footer"></div>
+
+  <script id="productListTemplate" type="text/html">
+    {{#  layui.each(d.list, function(index, item){ }} 
+      <div class="product-box layui-col-xs12 layui-col-sm6 layui-col-md3"> 
+        <div class="product-img"><img src="./assets/images/{{ item.img }}"></div> 
+        <div class="product-title">{{ item.title }}</div> 
+        <div class="product-text">{{ item.text }}</div> 
+      </div> 
+    {{#  }); }} 
+  </script>
+  <script id="solutionListTemplate" type="text/html"> 
+    {{#  layui.each(d.list, function(index, item){ }} 
+      <div class="global-border-light layui-col-xs12 layui-col-sm6 layui-col-md3"> 
+        <div id="{{ item.id }}" class="solution-box"> 
+          <div class="layui-row"> 
+            <img src="./assets/images/{{ item.img }}"> 
+          </div> 
+          <div class="layui-row"> 
+            <div class="layui-col-md4 layui-col-md-offset4"> 
+              {{ item.title }} 
+            </div> 
+          </div> 
+        </div> 
+      </div> 
+    {{#  }); }} 
+  </script> 
+  <script id="serviceListTemplate" type="text/html"> 
+    {{#  layui.each(d.list, function(index, item){ }} 
+      <div class="global-border-light layui-col-xs12 layui-col-sm6 layui-col-md6"> 
+        <div id="1" class="service-box">
+          <div class="layui-row"> 
+            <div class="service-content-img layui-col-xs12 layui-col-sm3 layui-col-md3 pc"> 
+              <img src="./assets/images/{{ item.img }}" > 
+            </div> 
+            <div class="service-content-title layui-col-xs12 layui-col-sm9 layui-col-md9"> 
+              <div class="service-content-title">{{ item.title }}</div> 
+              <div class="service-content-text">{{ item.text }}</div> 
+            </div> 
+          </div> 
+        </div> 
+      </div> 
+    {{#  }); }} 
+  </script>
+  <script id="companyListTemplate" type="text/html">
+    {{#  layui.each(d.list, function(index, item){ }}
+      <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+        <img src="./assets/images/company/{{ item }}">
+      </div>
+    {{#  }); }}
+  </script>
+  <script>
+    layui.use(['carousel', 'laytpl'], function(){
+      var carousel = layui.carousel;
+      //建造实例
+      carousel.render({
+        elem: '#index-banner'
+        ,width: '100%' //设置容器宽度
+        ,arrow: 'always' //始终显示箭头
+        //,anim: 'updown' //切换动画方式
+        ,height: window.innerWidth < 480 ? '200px' : '400px'
+      });
+
+      //模板引擎
+      var laytpl = layui.laytpl;
+      //产品特点 
+      var dataProduct = { "list": [
+        { "img": "a1.png", "title": "功能全面", "text": "集成监控、告警、资产管理、工单管理、易助手等功能，一套软件解决多个问题" },
+        { "img": "a2.png", "title": "简单易用", "text": "结合自动化，使用部署安装方便快捷" },
+        { "img": "a3.png", "title": "移动运维", "text": "IntelliOps的主要功能在移动终端上均能实现" },
+        { "img": "a4.png", "title": "架构灵活", "text": "支持私有云、公有云、混合云等多种架构" }
+      ] };
+      var tplProduct = productListTemplate.innerHTML;
+      var viewProduct = document.getElementById('productListView');
+      laytpl(tplProduct).render(dataProduct, function(html){
+        viewProduct.innerHTML = html;
+      }); 
+      //解决方案
+      var dataSolution = { "list": [
+        { "id": "area-monitor", "img": "solution-1.png", "title": "监控管理" },
+        { "id": "area-log", "img": "solution-2.png", "title": "日志管理" },
+        { "id": "area-easypc", "img": "solution-3.png", "title": "易助手" },
+        { "id": "area-cmdb", "img": "solution-4.png", "title": "IT资源管理" },
+        { "id": "area-workorder", "img": "solution-5.png", "title": "工单管理" },
+        { "id": "area-auto", "img": "solution-6.png", "title": "自动化" },
+        { "id": "area-mobileops", "img": "solution-7.png", "title": "移动运维" },
+        { "id": "area-wireless", "img": "solution-8.png", "title": "无线云平台" }
+      ] };
+      var tplSolution = solutionListTemplate.innerHTML;
+      var viewSolution = document.getElementById('solutionListView');
+      laytpl(tplSolution).render(dataSolution, function(html){
+        viewSolution.innerHTML = html;
+      });
+      //服务 
+      var dataService = { "list": [
+        { "id": "area-integration", "img": "icon-01.png", "title": "系统集成", "text": "提供产品交付、应用系统集成、IT咨询等服务。" },
+        { "id": "area-outsourcing", "img": "icon-02.png", "title": "运维外包", "text": "提供数据中心管理、网络管理、桌面管理、产品支持等专业运维外包服务。" }
+      ] };
+      var tplService = serviceListTemplate.innerHTML;
+      var viewService = document.getElementById('serviceListView');
+      laytpl(tplService).render(dataService, function(html){
+        viewService.innerHTML = html;
+      });
+      //公司图标
+      var dataCompany = { "list": ['c1.png', 'c2.png', 'c3.png', 'c4.png', 'c5.png', 'c6.png', 'c7.png', 'c9.png' ] };
+      var tplCompany = companyListTemplate.innerHTML;
+      var viewCompany = document.getElementById('companyListView');
+      laytpl(tplCompany).render(dataCompany, function(html){
+        viewCompany.innerHTML = html;
+      });
+
+      $("#area-monitor").on("click", function() {
+        window.location.href = "solution/monitor.html";
+      });
+      $("#area-log").on("click", function() {
+        window.location.href = "solution/log.html";
+      });
+      $("#area-easypc").on("click", function() {
+        window.location.href = "solution/easypc.html";
+      });
+      $("#area-cmdb").on("click", function() {
+        window.location.href = "solution/cmdb.html";
+      });
+      $("#area-workorder").on("click", function() {
+        window.location.href = "solution/workorder.html";
+      });
+      $("#area-auto").on("click", function() {
+        window.location.href = "solution/monitor.html";
+      });
+      $("#area-mobileops").on("click", function() {
+        window.location.href = "solution/mobileops.html";
+      });
+      $("#area-wireless").on("click", function() {
+        window.location.href = "solution/wireless.html";
+      });
+      $("#area-integration").on("click", function() {
+        window.location.href = "service/integration.html";
+      });
+      $("#area-outsourcing").on("click", function() {
+        window.location.href = "service/outsourcing.html";
+      });
+    });
+    $(document).ready(function(){
+      $("#btn-connect").on("click", function() {
+        window.location.href = "about/contact.html";
+      });
+    });
+  </script>
+  <!--[if lte IE 9]>
+    <script>
+      layui.use('layer', function(){
+        var layer = layui.layer;
+        layer.msg('您的IE版本过低, 建议使用IE10以上版本!');
+      });
+    </script>
+  <![endif]-->
+</body>
+</html>

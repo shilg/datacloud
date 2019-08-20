@@ -1,0 +1,93 @@
+
+/* banner */
+@keyframes doshow
+{
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.solution-banner {
+  height: 400px;
+  color: #fff;
+  background-color: #393d49; 
+  text-align: center; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: auto auto; 
+  background-image: url("../images/banner-common.png")/*tpa=http://www.shenfutech.com/assets/images/banner-common.png*/;
+}
+.solution-banner .layui-container {
+  top: 15%;
+}
+.solution-banner button { 
+  position: relative; 
+  top: 80%; 
+}
+.solution-banner-title {
+  font-size: 50px;
+  text-align: left;
+  padding: 10px 0px;
+
+  animation: doshow 1s;
+}
+.solution-banner-content {
+  font-size: 24px;
+  text-align: left;
+  padding: 20px 0px;
+
+  animation: doshow 1.5s;
+}
+.solution-banner-img img {
+  height: 300px;
+  width: 400px;
+
+  animation: doshow 2.5s;
+}
+.solution-banner-button {
+  text-align: left;
+  padding: 10px 0px;
+
+  animation: doshow 2s;
+}
+.solution-banner-button button {
+  font-size: 18px;
+  border-radius: 15px;
+  transition: 1s;
+  background-color: #393d49;
+  border: 1px solid #1E9FFF;
+}
+.solution-banner-button button:hover {
+  background-color: #1E9FFF;
+}
+/* 手机等小屏幕手持设备 */
+@media screen and (max-width: 480px) {
+  .solution-banner { 
+    height: 250px; 
+    background-size: auto 250px; 
+  }
+  .solution-banner button { 
+    position: relative;
+    top: 70%; 
+  }
+  .solution-banner-monitor {
+    height: 200px;
+    background-size: auto 200px;
+  }
+  .solution-banner-title {
+    font-size: 25px;
+    padding: 5px 0px;
+  }
+  .solution-banner-content {
+    font-size: 12px;
+    padding: 10px 0px;
+  }
+  .solution-banner-button {
+    padding: 5px 0px;
+  }
+  .solution-banner-button button {
+    font-size: 12px;
+  }
+  .solution-banner-img img {
+    height: 80px;
+    width: 120px;
+  }
+}

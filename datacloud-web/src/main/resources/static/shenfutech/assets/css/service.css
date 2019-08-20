@@ -1,0 +1,135 @@
+/* .banner-01 {
+  height: 400px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("../images/banner.png");
+} */
+/* banner */
+/* .service-banner {
+  height: 400px;
+  background-color: #393d49;
+  text-align: center;
+}
+.service-banner button {
+  position: relative;
+  top: 80%;
+}
+.service-banner-outsourcing {
+  height: 400px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto auto;
+  background-image: url("../images/banner-outsourcing.png");
+}
+.service-banner-integration {
+  height: 400px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto auto;
+  background-image: url("../images/banner-common.png");
+}
+.service-banner-title {
+  position: relative;
+  top: 25%;
+  left: -15%;
+  color: #fff;
+  font-size: 50px;
+} */
+
+/* banner */
+@keyframes doshow
+{
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.service-banner {
+  height: 400px;
+  color: #fff;
+  background-color: #393d49; 
+  text-align: center; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: auto auto; 
+  background-image: url("../images/banner-common.png")/*tpa=http://www.shenfutech.com/assets/images/banner-common.png*/;
+}
+.service-banner .layui-container {
+  top: 15%;
+}
+.service-banner button { 
+  position: relative; 
+  top: 80%; 
+}
+.service-banner-title {
+  font-size: 40px;
+  text-align: left;
+  padding: 10px 0px;
+
+  animation: doshow 1s;
+}
+.service-banner-content {
+  font-size: 24px;
+  text-align: left;
+  padding: 20px 0px;
+
+  animation: doshow 1.5s;
+}
+.service-banner-img img {
+  height: 300px;
+  width: 400px;
+
+  animation: doshow 2.5s;
+}
+.service-banner-button {
+  text-align: left;
+  padding: 10px 0px;
+
+  animation: doshow 2s;
+}
+.service-banner-button button {
+  font-size: 18px;
+  border-radius: 15px;
+  transition: 1s;
+  background-color: inherit;
+  border: 1px solid #1E9FFF;
+}
+.service-banner-button button:hover {
+  background-color: #1E9FFF;
+}
+/* 手机等小屏幕手持设备 */
+@media screen and (max-width: 480px) {
+  .service-banner {
+    height: 200px;
+  }
+  .service-banner-outsourcing {
+    height: 200px;
+    background-size: auto 200px;
+  }
+  .service-banner-integration {
+    height: 200px;
+    background-size: auto 200px;
+  }
+  .service-banner button { 
+    position: relative;
+    top: 70%; 
+  }
+  .service-banner-title {
+    font-size: 25px;
+    padding: 5px 0px;
+  }
+  .service-banner-content {
+    font-size: 12px;
+    padding: 10px 0px;
+  }
+  .service-banner-button {
+    padding: 5px 0px;
+  }
+  .service-banner-button button {
+    font-size: 5px;
+  }
+  .service-banner-img img {
+    height: 80px;
+    width: 120px;
+  }
+}

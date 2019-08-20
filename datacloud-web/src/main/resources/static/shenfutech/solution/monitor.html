@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>IntelliOps-智能一体化运维平台</title>
+  <meta name="keywords" content="IntelliOps,DevOps,服务器监控,日志管理,终端管理,易助手,EasyPc,CMDB,IT资源管理,工单管理,轻量ITSM,自动化,移动运维,无线云平台,网络设备监控,网络运维,IT运维,机房监控,路由器监控,交换机监控,虚拟机监控,数据中心监控,数据库监控,网络流量分析,netflow">
+  <meta name="description" content="IntelliOps，是申服科技旗下的智能一体化运维平台。支持分布式部署，适用于各种类型数据中心和网络，集监控、日志、易助手、IT资源管理、工单管理、自动化六大功能模块的运维产品，同时产品还支持移动端运维,大大提升运维效率。">
+  <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../assets/layui/css/layui.css" tppabs="http://www.shenfutech.com/assets/layui/css/layui.css">
+  <link rel="stylesheet" href="../assets/css/common.css" tppabs="http://www.shenfutech.com/assets/css/common.css">
+  <link rel="stylesheet" href="../assets/css/solution.css" tppabs="http://www.shenfutech.com/assets/css/solution.css">
+  <link rel="stylesheet" href="../assets/css/markdown-style.css" tppabs="http://www.shenfutech.com/assets/css/markdown-style.css">
+  <!--[if lt IE 9]>
+    <script src="../assets/js/html5.min.js" tppabs="http://www.shenfutech.com/assets/js/html5.min.js"></script>
+    <script src="../assets/js/respond.min.js" tppabs="http://www.shenfutech.com/assets/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div id="global-header"></div>
+  <div class="solution-banner solution-banner-monitor">
+    <div class="layui-container">
+      <div class="layui-row">
+        <div class="layui-col-xs8 layui-col-sm8 layui-col-md8">
+          <div class="solution-banner-title">智能监控告警系统</div>
+          <div class="solution-banner-content">监控功能强大，图形展示清晰直观、告警方式灵活多样</div>
+          <div class="solution-banner-button">
+            <button id="btn-try" class="layui-btn">免费试用</button>
+          </div>
+        </div>
+        <div class="solution-banner-img layui-col-xs4 layui-col-sm4 layui-col-md4"><img src="../assets/images/banner-img-monitor.png" tppabs="http://www.shenfutech.com/assets/images/banner-img-monitor.png"></div>
+      </div>
+    </div>
+  </div>
+  <div class="global-content">
+    <div id="dataListView"></div>
+    <div class="clear"></div>
+  </div>
+  <div id="global-footer"></div>
+  <script src="../assets/layui/layui.js" tppabs="http://www.shenfutech.com/assets/layui/layui.js"></script>
+  <script src="../assets/js/jquery-1.9.1.min.js" tppabs="http://www.shenfutech.com/assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../assets/js/common.js" tppabs="http://www.shenfutech.com/assets/js/common.js"></script>
+  <script src="../assets/js/dataSourceTemplate.js" tppabs="http://www.shenfutech.com/assets/js/dataSourceTemplate.js" ></script>
+  <script>
+    $(document).ready(function(){
+      $("#btn-try").on("click", function() {
+        window.location.href = "../about/contact.html"/*tpa=http://www.shenfutech.com/about/contact.html*/;
+      });
+    });
+    layui.use('laytpl', function(){
+      //模板引擎
+      var laytpl = layui.laytpl;
+      //页面数据
+      var dataSource = {
+        "list": [
+          {
+            "img": "monitor-1.png"/*tpa=http://www.shenfutech.com/solution/monitor-1.png*/,
+            "text": [
+              {
+                "title": '系统简介',
+                "content":
+                  '<p>基于zabbix二次开发，实现秒级实时数据采集</p>'+
+                  '<p>支持多数据中心架构</p>'
+              }
+            ]
+          },
+          {
+            "img": "monitor-2.png"/*tpa=http://www.shenfutech.com/solution/monitor-2.png*/,
+            "text": [
+              {
+                "title": '快速探针部署',
+                "content":
+                  '<p><img class="global-tabbox-icon" src="../assets/images/check.png"/*tpa=http://www.shenfutech.com/assets/images/check.png*/>10秒快速完成部署</p>'+
+                  '<p><img class="global-tabbox-icon" src="../assets/images/check.png"/*tpa=http://www.shenfutech.com/assets/images/check.png*/>针对Linux、Windows服务器，提供一键安装脚本，快速部署。</p>'
+              }
+            ]
+          },
+          {
+            "img": "monitor-3.png"/*tpa=http://www.shenfutech.com/solution/monitor-3.png*/,
+            "text": [
+              {
+                "title": '组件丰富',
+                "content": '<p>封装多种组件，方便快速完成组件的监控，模板中默认配置常用的监控项及告警指标；</p>'
+              },
+              {
+                "title": 'Docker',
+                "content": '<p>支持Docker的监控</p>'
+              }
+            ]
+          },
+          {
+            "img": "monitor-4.png"/*tpa=http://www.shenfutech.com/solution/monitor-4.png*/,
+            "text": [
+              {
+                "title": '布局灵活',
+                "content":
+                  '<p>强大的大屏展示功能</p>'+
+                  '<p>可灵活<span class="global-tabbox-keyword">拖拽</span>布局，满足各种灵活丰富的展示形式</p>'
+              }
+            ]
+          },
+          {
+            "img": "monitor-5.png"/*tpa=http://www.shenfutech.com/solution/monitor-5.png*/,
+            "text": [
+              {
+                "title": '可视化机房',
+                "content": '<p>能够自动生成机柜的2D图形展示, 以及机房布局的3D图形展示。</p>'
+              }
+            ]
+          },
+          {
+            "img": "monitor-6.png"/*tpa=http://www.shenfutech.com/solution/monitor-6.png*/,
+            "text": [
+              {
+                "title": '一键生成工单',
+                "content": '<p>与工单系统打通，告警推送至工单系统进行处理。内部或外部供应商可通过移动APP手机响应及处理工单。</p>'
+              }
+            ]
+          },
+          {
+            "img": "monitor-7.png"/*tpa=http://www.shenfutech.com/solution/monitor-7.png*/,
+            "text": [
+              {
+                "title": '灵活的告警规则',
+                "content":
+                  '<p>基于数据值、基于时间周期内的统计量、基于异常变化、</p>'+
+                  '<p>基于事件间逻辑关系、抑制无效告警、避免重复告警。</p>'
+              },
+              {
+                "title": '多种告警通知方式',
+                "content":
+                  '<div>'+
+                  '  <img class="global-tabbox-icon" src="../assets/images/check.png"/*tpa=http://www.shenfutech.com/assets/images/check.png*/>邮件'+
+                  '  <img class="global-tabbox-icon" src="../assets/images/check.png"/*tpa=http://www.shenfutech.com/assets/images/check.png*/>微信'+
+                  '  <img class="global-tabbox-icon" src="../assets/images/check.png"/*tpa=http://www.shenfutech.com/assets/images/check.png*/>电话'+
+                  '  <img class="global-tabbox-icon" src="../assets/images/check.png"/*tpa=http://www.shenfutech.com/assets/images/check.png*/>APP'+
+                  '  <img class="global-tabbox-icon" src="../assets/images/check.png"/*tpa=http://www.shenfutech.com/assets/images/check.png*/>短信'+
+                  '</div>'
+              }
+            ]
+          }
+        ]
+      };
+      var tplDatalist = TB_DATA_TEMPLATE;
+      var viewDatalist = document.getElementById('dataListView');
+      laytpl(tplDatalist).render(dataSource, function(html){
+        dataListView.innerHTML = html;
+      });
+    });
+  </script>
+</body>
+</html>
