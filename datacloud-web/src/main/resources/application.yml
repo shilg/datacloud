@@ -1,0 +1,49 @@
+server:
+  port: 9000
+  #port: 8080
+  session:
+    timeout: 3600
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  application:
+      name: datacloud-web
+  freemarker:
+      cache: false
+      check-template-location: true
+      charset: utf-8
+      content-type: text/html
+      expose-request-attributes: true
+      expose-spring-macro-helpers: false
+      expose-session-attributes: true
+      suffix: .ftl
+      template-loader-path: classpath:/templates/
+      request-context-attribute: request
+      enabled: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3309/datacloud
+    #username: root
+    #password: root
+    username: root
+    password: Shilg142857
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+      generate-ddl: false
+      show-sql: true
+      hibernate:
+        ddl-auto: none
+  http:
+    multipart:
+      max-file-size: 20Mb
+      max-request-size: 20Mb
+    encoding:
+      charset: UTF-8
+      force: true
+logging:
+    level:
+         root: info
+    #path: /tmp/logs
+    file: /usr/local/java/dataCloud.log
+importExcelPath: /usr/local/java/importExcle/
+comparExcelPath: /usr/local/java/comparExcle/
+comparResultPath: /usr/local/java/comparResultExcle/

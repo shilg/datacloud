@@ -1,0 +1,14 @@
+.useassword{
+    float: right;
+    /* margin-left: 1px; */
+    width: 75%;
+}
+.useEndDate{
+    float: right;
+    width: 75%;
+}
+.winBottomButton{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}

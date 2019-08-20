@@ -1,0 +1,85 @@
+/* banner */
+.about-banner {
+  height: 300px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto auto;
+  background-image: url("../images/banner-blue.png")/*tpa=http://www.shenfutech.com/assets/images/banner-blue.png*/;
+}
+.about-banner button {
+  position: relative;
+  top: 70%;
+}
+
+.about-content {
+  background-color: #f2f2f2;
+  padding: 50px 0px;
+}
+.about-main {
+  width: 75%;
+  min-width: 1200px;
+  margin: auto;
+}
+.about-main-left {
+  float: left;
+}
+.about-main-right {
+  float: right;
+  width: 80%;
+  background-color: #fff;
+}
+.about-main-right .markdown-body {
+  padding: 50px;
+}
+.about-companies {
+  margin-top: 30px;
+}
+.about-companies .layui-row {
+  text-align: center;
+}
+.about-companies .layui-row img {
+  height: 60px;
+  width: 250px;
+}
+#map {
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: auto 400px;
+  background-image: url("../images/map.png")/*tpa=http://www.shenfutech.com/assets/images/map.png*/;
+}
+
+/* 手机等小屏幕手持设备 */
+@media screen and (max-width: 480px) {
+  .about-main {
+    min-width: 300px;
+  }
+  .about-main .pc {
+    display: none;
+  }
+  .about-main .phone {
+    display: inline-block;
+  }
+  .about-main-right {
+    width: 100%;
+  }
+  .about-banner {
+    height: 150px;
+    background-size: auto 150px;
+  }
+}
+/* 平板之类的宽度 1024 以下设备 */
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  .about-main {
+    min-width: 650px;
+  }
+  .about-main .pc {
+    display: none;
+  }
+  .about-main .phone {
+    display: inline-block;
+  }
+  .about-main-right {
+    width: 100%;
+  }
+}

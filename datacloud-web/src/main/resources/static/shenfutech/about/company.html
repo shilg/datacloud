@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>IntelliOps-智能一体化运维平台</title>
+  <meta name="keywords" content="IntelliOps,DevOps,服务器监控,日志管理,终端管理,易助手,EasyPc,CMDB,IT资源管理,工单管理,轻量ITSM,自动化,移动运维,无线云平台,网络设备监控,网络运维,IT运维,机房监控,路由器监控,交换机监控,虚拟机监控,数据中心监控,数据库监控,网络流量分析,netflow">
+  <meta name="description" content="IntelliOps，是申服科技旗下的智能一体化运维平台。支持分布式部署，适用于各种类型数据中心和网络，集监控、日志、易助手、IT资源管理、工单管理、自动化六大功能模块的运维产品，同时产品还支持移动端运维,大大提升运维效率。">
+  <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../assets/layui/css/layui.css" tppabs="http://www.shenfutech.com/assets/layui/css/layui.css">
+  <link rel="stylesheet" href="../assets/css/common.css" tppabs="http://www.shenfutech.com/assets/css/common.css">
+  <link rel="stylesheet" href="../assets/css/about.css" tppabs="http://www.shenfutech.com/assets/css/about.css">
+  <link rel="stylesheet" href="../assets/css/markdown-style.css" tppabs="http://www.shenfutech.com/assets/css/markdown-style.css">
+  <!--[if lt IE 9]>
+    <script src="../assets/js/html5.min.js" tppabs="http://www.shenfutech.com/assets/js/html5.min.js"></script>
+    <script src="../assets/js/respond.min.js" tppabs="http://www.shenfutech.com/assets/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div id="global-header"></div>
+  <div class="about-banner"></div>
+  <div class="about-content">
+    <div class="about-main">
+      <div class="about-main-left pc">
+        <ul class="layui-nav layui-nav-tree">
+          <li class="layui-nav-item layui-this"><a href="company.html" tppabs="http://www.shenfutech.com/about/company.html">公司介绍</a></li>
+          <li class="layui-nav-item"><a href="contact.html" tppabs="http://www.shenfutech.com/about/contact.html">联系我们</a></li>
+        </ul>
+      </div>
+      <div class="about-main-right">
+        <div class="markdown-body">
+          <h3 id="-">公司介绍</h3>
+          <p>上海申服信息科技有限公司成立于2015年,是一家以<strong>软件开发</strong>、<strong>系统集成</strong>、<strong>多媒体应用及融合通讯服务业务</strong>为主的高科技公司。
+            申服科技与上海无线通讯研究中心合作，研制开发了无线AP的云管理平台——蒲公英无线云管理系统<strong>DWCCS(Dandelion Wifi Cloud Control System)</strong>
+            和<strong>IntelliOps</strong> 智能一体化运维平台。这两项拥有自主知识产权的管理系统，作为申服科技的拳头产品推向市场。</p>
+          <h3 id="-">合作伙伴</h3>
+          <p>上海市物联网协会成员单位<br>上海市无线通讯研究中心科技成果转化单位<br>联想企业级系统服务合作伙伴<br>新华三集团认证代理商<br>浪潮系统服务合作伙伴</p>
+          <div class="layui-fluid about-companies">
+            <div class="layui-row layui-col-space10">
+              <div id="companyListView"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div id="global-footer"></div>
+  <script src="../assets/layui/layui.js" tppabs="http://www.shenfutech.com/assets/layui/layui.js"></script>
+  <script src="../assets/js/jquery-1.9.1.min.js" tppabs="http://www.shenfutech.com/assets/js/jquery-1.9.1.min.js"></script>
+  <script src="../assets/js/common.js" tppabs="http://www.shenfutech.com/assets/js/common.js"></script>
+  <script id="companyListTemplate" type="text/html">
+    {{#  layui.each(d.list, function(index, item){ }}
+      <div class="layui-col-xs12 layui-col-sm6 layui-col-md3">
+        <img src="../assets/images/company/{{ item }}">
+      </div>
+    {{#  }); }}
+  </script>
+  <script>
+    layui.use(['laytpl'], function(){
+      //模板引擎
+      var laytpl = layui.laytpl;
+      //公司图标
+      var dataCompany = { "list": ['c1.png'/*tpa=http://www.shenfutech.com/about/c1.png*/, 'c2.png'/*tpa=http://www.shenfutech.com/about/c2.png*/, 'c3.png'/*tpa=http://www.shenfutech.com/about/c3.png*/, 'c4.png'/*tpa=http://www.shenfutech.com/about/c4.png*/, 'c5.png'/*tpa=http://www.shenfutech.com/about/c5.png*/, 'c6.png'/*tpa=http://www.shenfutech.com/about/c6.png*/, 'c7.png'/*tpa=http://www.shenfutech.com/about/c7.png*/, 'c9.png'/*tpa=http://www.shenfutech.com/about/c9.png*/ ] };
+      var tplCompany = companyListTemplate.innerHTML;
+      var viewCompany = document.getElementById('companyListView');
+      laytpl(tplCompany).render(dataCompany, function(html){
+        viewCompany.innerHTML = html;
+      });
+    });
+  </script>
+</body>
+</html>
